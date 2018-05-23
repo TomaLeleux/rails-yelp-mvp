@@ -1,0 +1,34 @@
+<h1 class="text-center"><%= @restaurant.name %></h1>
+
+<div class="card">
+  <img class="card-img-top" src="https://loremflickr.com/320/240/food" alt="Image">
+  <div class="card-body">
+    <h4 class="card-title"><%= @restaurant.name %></h4>
+    <p class="card-text"><strong>Address : </strong>
+      <%= @restaurant.address %>
+    </p>
+    <p class="card-text"><strong>Phone number : </strong>
+      <%= @restaurant.phone_number %>
+    </p>
+    <p class="card-text"></p>
+    <h3>Reviews</h3>
+      <ul>
+        <% @reviews.each do |review| %>
+          <li>
+            <%= review.content %>
+            <% review.rating.times do |x| %>
+              <i class="fa fa-star rating"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+
+  <%= render "reviews/form" %>
+</div>
+
+<hr>
+
+<i class="fa fa-undo" aria-hidden="true">
+  <%= link_to "Back to the list", restaurants_path, class: "link" %>
+</i>

@@ -1,0 +1,9 @@
+<h1>Add a review for <strong><%= @restaurant.name %></strong></h1>
+
+<%= render 'form', review: @review %>
+
+<hr>
+
+<i class="fa fa-undo" aria-hidden="true">
+  <%= link_to "Back to the list", restaurants_path, class: "link" %>
+</i>

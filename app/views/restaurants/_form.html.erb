@@ -1,0 +1,13 @@
+<div class="review_form">
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name, class: "form-control" %>
+
+    <%= f.input :address, class: "form-control"%>
+
+    <%= f.input :phone_number, class: "form-control"%>
+
+    <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"], include_blank: false %>
+
+    <%= f.submit "Add a restaurant", class: "btn btn-primary" %>
+  <% end %>
+</div>

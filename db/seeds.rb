@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Creating 100 fake restaurants...'
+100.times do
+  restaurant = Restaurant.new(
+    name: Faker::Movie.quote,
+    address: "#{Faker::Address.street_address}, #{Faker::Address.city} - #{Faker::Address.zip}",
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+  )
+  restaurant.save!
+  5.times do
+    review = Review.new(
+      content: Faker::ChuckNorris.fact,
+      rating: (0..5).to_a.sample,
+      restaurant: restaurant
+    )
+    review.save!
+  end
+end
+puts 'Finished!'

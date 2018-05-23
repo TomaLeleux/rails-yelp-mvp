@@ -1,0 +1,16 @@
+<h1>List of restaurants</h1>
+
+<%= link_to "Add a restaurant", new_restaurant_path, class: "btn btn-primary" %>
+
+<% @restaurants.each do |restaurant| %>
+  <%= link_to restaurant_path(restaurant) do %>
+    <div class="product">
+      <img src="https://loremflickr.com/320/240/food" alt="food" class="product-image hidden-xs">
+      <div class='product-body'>
+        <h3><%= restaurant.name %> - <%= restaurant.category %></h3>
+        <p><%= restaurant.address %> - <%= restaurant.phone_number %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
